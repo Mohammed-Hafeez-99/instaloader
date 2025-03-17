@@ -79,7 +79,7 @@ class InstaloaderContext:
     """
 
     def __init__(self, sleep: bool = True, quiet: bool = False, user_agent: Optional[str] = None,
-                 max_connection_attempts: int = 3, request_timeout: float = 300.0,
+                 max_connection_attempts: int = 10, request_timeout: float = 600.0,
                  rate_controller: Optional[Callable[["InstaloaderContext"], "RateController"]] = None,
                  fatal_status_codes: Optional[List[int]] = None,
                  iphone_support: bool = True):
@@ -92,6 +92,7 @@ class InstaloaderContext:
         self.sleep = sleep
         self.quiet = quiet
         self.max_connection_attempts = max_connection_attempts
+        self.request_timeout = request_timeout
         self._graphql_page_length = 50
         self.two_factor_auth_pending = None
         self.iphone_support = iphone_support
