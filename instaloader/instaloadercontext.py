@@ -364,7 +364,7 @@ class InstaloaderContext:
     def do_sleep(self):
         """Sleep a short time if self.sleep is set. Called before each request to instagram.com."""
         if self.sleep:
-            time.sleep(min(random.expovariate(0.6), 15.0))
+            time.sleep(random.randint(15, 30))
 
     @staticmethod
     def _response_error(resp: requests.Response) -> str:
